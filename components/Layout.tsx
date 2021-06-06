@@ -29,7 +29,7 @@ const Layout: React.FC<{ title?: string; keywords?: string; description?: string
 export default Layout;
 
 Layout.defaultProps = {
-  title: "DJ Events | Find the hottest parties",
-  description: "Find the latest DJ and other musical events",
-  keywords: "music, dj, edm, events",
+  title: "Learning Icelandic | Find the best solution to learn",
+  description: "Learn Icelandic website",
+  keywords: "Icelandic, learn, læra, language",
 };

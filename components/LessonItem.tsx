@@ -4,6 +4,8 @@ import { Lesson } from "@models/strapi-types";
 import styles from "@styles/LessonItem.module.css";
 
 const LessonItem: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
+  console.log(lesson.image
+    )
   return (
     <div className={styles.lesson}>
       <div className={styles.img}>
