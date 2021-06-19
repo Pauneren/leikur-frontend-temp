@@ -127,45 +127,45 @@ export interface DisplayTemplate {
   id: string;
 }
 
+//lesson
 export interface Lesson {
   _id: string;
-  lessonNo: number;
+  published_at: string;
   description: string;
-  published_at: Date;
-  createdAt: Date;
-  updatedAt: Date;
-  __v: number;
-  image: Image;
-  level: string;
+  lessonNo: number;
   key: string;
   levelNo: number;
-  id: string;
-  pages: Page[];
-}
-
-export interface Page {
-  _id: string;
-  slug: string;
-  pageNo: number;
-  title: string;
-  published_at: Date;
-  createdAt: Date;
-  updatedAt: Date;
+  pages: PagesEntity[];
+  createdAt: string;
+  updatedAt: string;
   __v: number;
-  category: Category;
-  display_template: DisplayTemplate;
-  content: string;
-  lesson: Lesson;
-  lessonNo: number;
-  levelNo: number;
+  level: Level;
+  image?: Image | null;
   id: string;
-  audio: Audio;
-  image: Image;
-  subtitles: Subtitles;
-  video: Video;
 }
 
-export interface Video {
+//pages
+export interface PagesEntity {
+  __component: string;
+  _id: string;
+  title: string;
+  pageInfo: PageInfo;
+  __v: number;
+  audio: AudioOrVideo;
+  category: Category;
+  image?: Image | null;
+  id: string;
+  content: string;
+  video: AudioOrVideo;
+}
+export interface PageInfo {
+  _id: string;
+  pageNo: number;
+  slug: string;
+  __v: number;
+  id: string;
+}
+export interface AudioOrVideo {
   _id: string;
   name: string;
   alternativeText: string;
@@ -178,15 +178,14 @@ export interface Video {
   url: string;
   provider_metadata: ProviderMetadata;
   provider: string;
-  width?: any;
-  height?: any;
-  related: string[];
-  createdAt: Date;
-  updatedAt: Date;
+  width?: null;
+  height?: null;
+  related?: (null)[] | null;
+  createdAt: string;
+  updatedAt: string;
   __v: number;
   id: string;
 }
-
 export interface Subtitles {
   _id: string;
   name: string;

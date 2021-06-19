@@ -10,19 +10,19 @@ import {
   ClosedCaptionButton,
   BigPlayButton,
 } from "video-react";
-import { Page } from "@models/strapi-types";
+import { PagesEntity } from "@models/strapi-types";
 import NavSlugs from "@models/nav-slugs";
 import Layout from "@components/Layout";
 import "../node_modules/video-react/dist/video-react.css";
 import styles from "@styles/BasicPageTemplate.module.css";
 
 interface Props {
-  page: Page;
+  page: PagesEntity;
   navSlugs: NavSlugs;
 }
 
 const TextWithImageAndVideo: React.FC<Props> = ({ page, navSlugs }: Props) => {
-  const levelKey = page.slug.split("-", 1);
+  const levelKey = page.pageInfo.slug.split("-", 1);
 
   return (
     <Layout>
@@ -32,7 +32,6 @@ const TextWithImageAndVideo: React.FC<Props> = ({ page, navSlugs }: Props) => {
           <div>
             <Player>
               <source src={page.video.url} />
-              <track kind="captions" src={page.subtitles.url} srcLang="en" label="English" default />
               <BigPlayButton position="center" />
               <ControlBar>
                 <VolumeMenuButton />

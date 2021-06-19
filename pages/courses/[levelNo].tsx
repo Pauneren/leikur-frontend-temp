@@ -23,6 +23,7 @@ export async function getStaticProps(context: { params: any }) {
 
   const res = await fetch(`${API_URL}/lessons?levelNo=${params.levelNo}&_sort=lessonNo:ASC`);
   const lessons = await res.json();
+  console.log(lessons)
   return {
     props: {
       lessons: lessons,
@@ -37,6 +38,8 @@ export async function getStaticPaths() {
   const paths = levels.map((level) => ({
     params: { levelNo: `${level.levelNo}` },
   }));
+
+  console.log(paths)
 
   return {
     paths,

@@ -4,8 +4,6 @@ import { Lesson } from "@models/strapi-types";
 import styles from "@styles/LessonItem.module.css";
 
 const LessonItem: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
-  console.log(lesson.image
-    )
   return (
     <div className={styles.lesson}>
       <div className={styles.img}>
@@ -21,7 +19,7 @@ const LessonItem: React.FC<{ lesson: Lesson }> = ({ lesson }) => {
       </div>
       <div className={styles.link}>
         {lesson.pages && lesson.pages.length > 0 ? (
-          <Link href={`/lessons/${lesson.pages[0].slug}`}>
+          <Link href={`/lessons/${lesson?.pages[0]?.pageInfo.slug}`}>
             <a className="btn">Start lesson</a>
           </Link>
         ) : (

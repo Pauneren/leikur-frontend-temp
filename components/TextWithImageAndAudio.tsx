@@ -2,19 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import AudioPlayer from "react-h5-audio-player";
 import ReactMarkdown from "react-markdown";
-import { Page } from "@models/strapi-types";
 import NavSlugs from "@models/nav-slugs";
 import Layout from "@components/Layout";
 import "react-h5-audio-player/lib/styles.css";
 import styles from "@styles/BasicPageTemplate.module.css";
+import { PagesEntity } from '../models/strapi-types';
 
 interface Props {
-  page: Page;
+  page: PagesEntity;
   navSlugs: NavSlugs;
 }
 
+
 const TextWithImageAndAudio: React.FC<Props> = ({ page, navSlugs }: Props) => {
-  const levelKey = page.slug.split("-", 1);
+  const levelKey = page.pageInfo.slug.split("-", 1);
 
   return (
     <Layout>
